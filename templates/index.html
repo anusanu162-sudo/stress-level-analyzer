@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stress Level Analyzer</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+            background-size: 400% 400%;
+            animation: gradient 12s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            width: 420px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        select:hover, input:hover {
+            transform: scale(1.02);
+            transition: 0.2s;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #f44336;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Stress Level Analyzer</h2>
+    <div class="subtitle">Understand your mental state in seconds</div>
+
+    <form method="POST" action="/result">
+
+        <label>Sleep Duration</label>
+        <select name="sleep" required>
+            <option value="10"><5 hrs</option>
+            <option value="7">5-6 hrs</option>
+            <option value="4">6-7 hrs</option>
+            <option value="2">7-8 hrs</option>
+            <option value="3">>8 hrs</option>
+        </select>
+
+        <label>Work Hours</label>
+        <select name="work" required>
+            <option value="2"><4 hrs</option>
+            <option value="5">4-6 hrs</option>
+            <option value="8">6-8 hrs</option>
+            <option value="10">>8 hrs</option>
+        </select>
+
+        <label>Screen Time</label>
+        <select name="screen" required>
+            <option value="2"><3 hrs</option>
+            <option value="5">3-5 hrs</option>
+            <option value="8">5-7 hrs</option>
+            <option value="10">>7 hrs</option>
+        </select>
+
+        <label>Exercise</label>
+        <select name="exercise" required>
+            <option value="10">None</option>
+            <option value="6">10-20 min</option>
+            <option value="3">20-40 min</option>
+            <option value="1">>40 min</option>
+        </select>
+
+        <label>Caffeine Intake</label>
+        <select name="caffeine" required>
+            <option value="1">None</option>
+            <option value="4">1-2 cups</option>
+            <option value="7">3-4 cups</option>
+            <option value="10">>4 cups</option>
+        </select>
+
+        <label>Mood (1=Good, 10=Very Bad)</label>
+        <input type="number" name="mood" min="1" max="10" required>
+
+        <label>Headache / Body Pain</label>
+        <select name="headache" required>
+            <option value="0">No</option>
+            <option value="4">Mild</option>
+            <option value="7">Moderate</option>
+            <option value="10">Severe</option>
+        </select>
+
+        <label>Deadline Pressure</label>
+        <select name="deadline" required>
+            <option value="2">Low</option>
+            <option value="6">Moderate</option>
+            <option value="10">High</option>
+        </select>
+
+        <label>Social Interaction</label>
+        <select name="social" required>
+            <option value="1">Good</option>
+            <option value="5">Limited</option>
+            <option value="10">Isolated</option>
+        </select>
+
+        <label>Major Life Event</label>
+        <select name="life_event" required>
+            <option value="0">No</option>
+            <option value="5">Minor</option>
+            <option value="10">Major</option>
+        </select>
+
+        <button type="submit">Analyze My Stress</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

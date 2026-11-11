@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stress Result</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #6dd5ed, #2193b0);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .card {
+            background: rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            color: white;
+            width: 400px;
+        }
+
+        .percentage {
+            font-size: 60px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .emoji {
+            font-size: 50px;
+        }
+
+        .quote {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Your Stress Level</h2>
+    <div class="percentage" style="color: {{color}};">
+        {{percentage}}%
+    </div>
+    <div class="emoji">{{emoji}}</div>
+    <h3>{{level}} Stress</h3>
+    <div class="quote">{{quote}}</div>
+
+    <form action="/">
+        <button>Check Again</button>
+    </form>
+</div>
+
+</body>
+</html>
